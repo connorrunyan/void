@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://culyhxh6th8bu"]
+
+[ext_resource type="PackedScene" uid="uid://cin4quit4sfx1" path="res://Player.tscn" id="1_a18xw"]
+[ext_resource type="PackedScene" uid="uid://vywfva2silyk" path="res://Tree.tscn" id="3_au4gx"]
+[ext_resource type="PackedScene" uid="uid://3qub768veed7" path="res://CoolFlower.tscn" id="3_prx4b"]
+
+[node name="Test" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_a18xw")]
+
+[node name="CoolFlower" parent="." instance=ExtResource("3_prx4b")]
+position = Vector2(191, -23)
+
+[node name="CoolFlower2" parent="." instance=ExtResource("3_prx4b")]
+position = Vector2(140, 5)
+
+[node name="CoolFlower3" parent="." instance=ExtResource("3_prx4b")]
+position = Vector2(205, 57)
+
+[node name="CoolFlower4" parent="." instance=ExtResource("3_prx4b")]
+position = Vector2(127, -46)
+
+[node name="Tree" parent="." instance=ExtResource("3_au4gx")]
+position = Vector2(46, 220)
+
+[node name="Tree2" parent="." instance=ExtResource("3_au4gx")]
+position = Vector2(323, -134)

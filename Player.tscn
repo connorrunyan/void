@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cin4quit4sfx1"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_68mvd"]
+[ext_resource type="Texture2D" uid="uid://bhf8o3mjjtrgb" path="res://Sprite-0001.png" id="2_iic1q"]
+[ext_resource type="AudioStream" uid="uid://dpgtww3as35aj" path="res://bushhitwav-14661.mp3" id="3_obtp2"]
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_68mvd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_iic1q")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -19.0
+offset_top = -40.0
+offset_right = 21.0
+offset_bottom = -17.0
+text = "0"
+horizontal_alignment = 1
+
+[node name="PickAudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_obtp2")
+volume_db = 1.0
