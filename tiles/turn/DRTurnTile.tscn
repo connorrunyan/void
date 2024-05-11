@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://byq7pllkwtsd6"]
+
+[ext_resource type="Script" path="res://tiles/Tile.gd" id="1_u73d8"]
+[ext_resource type="Texture2D" uid="uid://bqrefuq330mxd" path="res://tiles/turn/tile_turn_right.png" id="2_t53qr"]
+[ext_resource type="PackedScene" uid="uid://coq24jslo3rv4" path="res://tile_add_point.tscn" id="3_25vga"]
+
+[node name="DrTurnTile" type="Node2D"]
+script = ExtResource("1_u73d8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_t53qr")
+flip_h = true
+flip_v = true
+
+[node name="TileAddPoint" parent="." instance=ExtResource("3_25vga")]
+position = Vector2(256, 0)
+direction_to_next = 3

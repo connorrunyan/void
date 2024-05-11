@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://kleo4rxlh6n0"]
+
+[ext_resource type="Script" path="res://tiles/Tile.gd" id="1_82mvd"]
+[ext_resource type="Texture2D" uid="uid://rerwl3k3xpl1" path="res://tiles/tile_center.png" id="1_rxjsk"]
+[ext_resource type="PackedScene" uid="uid://coq24jslo3rv4" path="res://tile_add_point.tscn" id="2_xw1oa"]
+
+[node name="HomeTile" type="Node2D"]
+script = ExtResource("1_82mvd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_rxjsk")
+
+[node name="TileAddPoint" parent="." instance=ExtResource("2_xw1oa")]
+position = Vector2(0, 255)
+direction_to_next = 1
+
+[node name="TileAddPoint2" parent="." instance=ExtResource("2_xw1oa")]
+position = Vector2(0, -255)
+direction_to_next = 0
+
+[node name="TileAddPoint3" parent="." instance=ExtResource("2_xw1oa")]
+position = Vector2(-255, 0)
+
+[node name="TileAddPoint4" parent="." instance=ExtResource("2_xw1oa")]
+position = Vector2(255, 0)
+direction_to_next = 3

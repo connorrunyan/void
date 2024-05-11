@@ -1,11 +1,12 @@
 extends Node2D
 
 const SPEED = 300.0
-const INTERACT_DISTANCE = 40.0
+const INTERACT_DISTANCE = 50.0
 
 @onready var camera = $Camera2D
 @onready var label = $Label
 @onready var pick_audio = $PickAudioStreamPlayer
+@onready var new_tile_audio = $NewTileAudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -53,6 +54,6 @@ func handle_interactables(delta):
 			i.inform_in_range()
 			if want_to_interact:
 				i.interact()
-				pick_audio.play()
+				pick_audio.play() # TODO differentiate audio
 		else:
 			i.inform_out_of_range()

@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://blc35rvorsbw4"]
+
+[ext_resource type="Texture2D" uid="uid://c1xit4uibkc00" path="res://tiles/streight/tile_streight.png" id="1_geiss"]
+[ext_resource type="Script" path="res://tiles/Tile.gd" id="1_i2c6i"]
+[ext_resource type="PackedScene" uid="uid://coq24jslo3rv4" path="res://tile_add_point.tscn" id="1_t7odl"]
+
+[node name="DuStreightTile" type="Node2D"]
+script = ExtResource("1_i2c6i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_geiss")
+
+[node name="TileAddPoint" parent="." instance=ExtResource("1_t7odl")]
+position = Vector2(0, -256)
+direction_to_next = 0

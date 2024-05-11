@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcog1de78nco3"]
+
+[ext_resource type="Texture2D" uid="uid://bqrefuq330mxd" path="res://tiles/turn/tile_turn_right.png" id="1_xpyqx"]
+
+[node name="TurnTile" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_xpyqx")

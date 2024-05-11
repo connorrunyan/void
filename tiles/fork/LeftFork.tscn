@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqd106tpm3px4"]
+
+[ext_resource type="Script" path="res://tiles/Tile.gd" id="1_mbyjd"]
+[ext_resource type="Texture2D" uid="uid://cm27a8vpl6cmn" path="res://tiles/fork/tile_fork.png" id="2_02qgv"]
+[ext_resource type="PackedScene" uid="uid://coq24jslo3rv4" path="res://tile_add_point.tscn" id="3_n0jho"]
+
+[node name="LeftFork" type="Node2D"]
+script = ExtResource("1_mbyjd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 3.14159
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_02qgv")
+
+[node name="TileAddPoint" parent="." instance=ExtResource("3_n0jho")]
+position = Vector2(0, -256)
+direction_to_next = 0
+
+[node name="TileAddPoint2" parent="." instance=ExtResource("3_n0jho")]
+position = Vector2(0, 256)
+direction_to_next = 1

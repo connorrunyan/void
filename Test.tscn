@@ -1,27 +1,92 @@
-[gd_scene load_steps=4 format=3 uid="uid://culyhxh6th8bu"]
+[gd_scene load_steps=8 format=3 uid="uid://culyhxh6th8bu"]
 
 [ext_resource type="PackedScene" uid="uid://cin4quit4sfx1" path="res://Player.tscn" id="1_a18xw"]
+[ext_resource type="PackedScene" uid="uid://kleo4rxlh6n0" path="res://tiles/home_tile.tscn" id="1_oyux3"]
+[ext_resource type="PackedScene" uid="uid://cmdoe41o55ct1" path="res://tiles/streight_tile.tscn" id="2_ebcjp"]
+[ext_resource type="PackedScene" uid="uid://dr8huxlckbnym" path="res://fork_tile.tscn" id="3_5l1gf"]
 [ext_resource type="PackedScene" uid="uid://vywfva2silyk" path="res://Tree.tscn" id="3_au4gx"]
 [ext_resource type="PackedScene" uid="uid://3qub768veed7" path="res://CoolFlower.tscn" id="3_prx4b"]
+[ext_resource type="PackedScene" uid="uid://dcog1de78nco3" path="res://turn_tile.tscn" id="4_k82mt"]
 
 [node name="Test" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="HomeTile" parent="Node2D" instance=ExtResource("1_oyux3")]
+
+[node name="streight_tile" parent="Node2D" instance=ExtResource("2_ebcjp")]
+position = Vector2(511, 0)
+
+[node name="streight_tile2" parent="Node2D" instance=ExtResource("2_ebcjp")]
+position = Vector2(0, -512)
+rotation = 1.5708
+
+[node name="ForkTile" parent="Node2D" instance=ExtResource("3_5l1gf")]
+position = Vector2(-511, 0)
+rotation = 3.14159
+
+[node name="TurnTile" parent="Node2D" instance=ExtResource("4_k82mt")]
+position = Vector2(-511, -512)
+rotation = 4.71239
 
 [node name="Player" parent="." instance=ExtResource("1_a18xw")]
 
 [node name="CoolFlower" parent="." instance=ExtResource("3_prx4b")]
-position = Vector2(191, -23)
+position = Vector2(242, -77)
 
 [node name="CoolFlower2" parent="." instance=ExtResource("3_prx4b")]
-position = Vector2(140, 5)
+position = Vector2(240, 43)
 
 [node name="CoolFlower3" parent="." instance=ExtResource("3_prx4b")]
-position = Vector2(205, 57)
+position = Vector2(357, 65)
+
+[node name="CoolFlower5" parent="." instance=ExtResource("3_prx4b")]
+position = Vector2(222, 127)
+
+[node name="CoolFlower6" parent="." instance=ExtResource("3_prx4b")]
+position = Vector2(-378, 92)
+
+[node name="CoolFlower7" parent="." instance=ExtResource("3_prx4b")]
+position = Vector2(-629, 129)
+
+[node name="CoolFlower8" parent="." instance=ExtResource("3_prx4b")]
+position = Vector2(-612, -108)
+
+[node name="CoolFlower9" parent="." instance=ExtResource("3_prx4b")]
+position = Vector2(-437, -382)
+
+[node name="CoolFlower10" parent="." instance=ExtResource("3_prx4b")]
+position = Vector2(-77, -227)
+
+[node name="CoolFlower11" parent="." instance=ExtResource("3_prx4b")]
+position = Vector2(-82, -358)
+
+[node name="CoolFlower12" parent="." instance=ExtResource("3_prx4b")]
+position = Vector2(197, -666)
+
+[node name="CoolFlower13" parent="." instance=ExtResource("3_prx4b")]
+position = Vector2(130, -621)
+
+[node name="CoolFlower14" parent="." instance=ExtResource("3_prx4b")]
+position = Vector2(115, -729)
+
+[node name="CoolFlower15" parent="." instance=ExtResource("3_prx4b")]
+position = Vector2(707, -70)
 
 [node name="CoolFlower4" parent="." instance=ExtResource("3_prx4b")]
-position = Vector2(127, -46)
+position = Vector2(119, -236)
 
 [node name="Tree" parent="." instance=ExtResource("3_au4gx")]
-position = Vector2(46, 220)
+position = Vector2(532, 276)
 
 [node name="Tree2" parent="." instance=ExtResource("3_au4gx")]
-position = Vector2(323, -134)
+position = Vector2(301, -409)
+
+[node name="Tree3" parent="." instance=ExtResource("3_au4gx")]
+position = Vector2(-286, -263)
+
+[node name="Tree4" parent="." instance=ExtResource("3_au4gx")]
+position = Vector2(-646, -785)
+
+[node name="Tree5" parent="." instance=ExtResource("3_au4gx")]
+position = Vector2(-192, -803)

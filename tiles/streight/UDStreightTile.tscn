@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bew25npiaqrwy"]
+
+[ext_resource type="Script" path="res://tiles/Tile.gd" id="1_2mfem"]
+[ext_resource type="Texture2D" uid="uid://c1xit4uibkc00" path="res://tiles/streight/tile_streight.png" id="1_d1f4n"]
+[ext_resource type="PackedScene" uid="uid://coq24jslo3rv4" path="res://tile_add_point.tscn" id="2_fhuor"]
+
+[node name="UdStreightTile" type="Node2D"]
+script = ExtResource("1_2mfem")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_d1f4n")
+
+[node name="TileAddPoint" parent="." instance=ExtResource("2_fhuor")]
+position = Vector2(0, 256)
+direction_to_next = 1

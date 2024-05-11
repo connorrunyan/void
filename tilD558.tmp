@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://coq24jslo3rv4"]
+
+[ext_resource type="Script" path="res://tile_add_point.gd" id="1_7u5rd"]
+[ext_resource type="Texture2D" uid="uid://fuyasx4vn8cn" path="res://icon.svg" id="1_l64dy"]
+
+[node name="TileAddPoint" type="Node2D" groups=["Interactable"]]
+script = ExtResource("1_7u5rd")
+tile_coord_x = null
+tile_coord_y = null
+direction_to_next = null
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -19.0
+offset_top = -42.0
+offset_right = 21.0
+offset_bottom = -19.0
+text = "E"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_l64dy")
