@@ -9,6 +9,7 @@ var hit_delay = 1.0
 
 var lasertime = 0;
 
+static var Turret_count = 0
 
 @onready var line = $Line2D
 
@@ -46,16 +47,16 @@ func _update_line():
 			var enemy_collision_shape = first_target.get_node("CollisionShape2D")
 			
 			var tower_center = global_position
-
-
-
+			
+			
+			
 			# Add points to the line
 			# Convert global positions to local positions relative to the line's position
 			line.add_point(to_local(tower_center))
 			line.add_point(to_local(first_target.global_position))
 			
 
-#Function for distributing damage from the tower
+#Function for shooting those voidy boys
 func damage(delta):
 	#if there is a target to shoot at, then shoot at him
 	if current_targets.size() > 0:
@@ -74,7 +75,15 @@ func _process(delta):
 		_update_line()
 		lasertime -= delta
 	else:
-		#clean up the previous laser.
+		#clean up the previous lser.
 		line.clear_points()
 	damage(delta)
+
+static func get_next_turret_name() -> String:
+	Turret_count += 1
+	return "Turret" + str(Turret_count)
+
+#func _ready():
+	# Assign a unique name to this instance
+	#self.name = get_next_turret_name()
 

@@ -16,7 +16,7 @@ static var enemy_count = 0
 
 func take_damage(amount):
 	health -= amount
-
+	print("Enemy ", self.name, " took ", amount, " damage. Health: ", health)
 	if health <= 0:
 		
 		death.start()
