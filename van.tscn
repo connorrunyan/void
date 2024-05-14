@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bo2xlwoyfgg8d"]
+
+[ext_resource type="Texture2D" uid="uid://crl0to4oilq42" path="res://van.png" id="1_6loh4"]
+[ext_resource type="Script" path="res://van.gd" id="1_p6726"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xwk68"]
+radius = 42.0
+height = 178.0
+
+[node name="Van" type="Node2D" groups=["Van"]]
+script = ExtResource("1_p6726")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_6loh4")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(3, -2)
+rotation = 1.63188
+shape = SubResource("CapsuleShape2D_xwk68")

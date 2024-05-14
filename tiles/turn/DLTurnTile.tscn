@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://qefrq6jtpcft"]
+[gd_scene load_steps=5 format=3 uid="uid://qefrq6jtpcft"]
 
 [ext_resource type="Script" path="res://tiles/Tile.gd" id="1_5x86f"]
 [ext_resource type="Texture2D" uid="uid://bqrefuq330mxd" path="res://tiles/turn/tile_turn_right.png" id="2_kvqhj"]
 [ext_resource type="PackedScene" uid="uid://coq24jslo3rv4" path="res://tile_add_point.tscn" id="3_ncdcx"]
+[ext_resource type="PackedScene" uid="uid://bf25eanti5hg4" path="res://turret.tscn" id="4_n4nxh"]
 
 [node name="DlTurnTile" type="Node2D"]
 script = ExtResource("1_5x86f")
@@ -14,3 +15,20 @@ flip_v = true
 
 [node name="TileAddPoint" parent="." instance=ExtResource("3_ncdcx")]
 position = Vector2(-256, 0)
+
+[node name="Turret1" parent="." instance=ExtResource("4_n4nxh")]
+visible = false
+position = Vector2(-114, -89)
+
+[node name="Turret2" parent="." instance=ExtResource("4_n4nxh")]
+visible = false
+position = Vector2(98, 124)
+
+[node name="Turret3" parent="." instance=ExtResource("4_n4nxh")]
+visible = false
+position = Vector2(-175, 171)
+
+[node name="PathCenter" type="Node2D" parent="."]
+
+[node name="PathEnd" type="Node2D" parent="."]
+position = Vector2(0, -256)

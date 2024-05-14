@@ -8,6 +8,7 @@ size = Vector2(38, 39)
 
 [node name="TileAddPoint" type="Node2D" groups=["Interactable", "TileAddPoint"]]
 script = ExtResource("1_7u5rd")
+direction_to_next = null
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -27,8 +28,7 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = -104.0
-offset_bottom = -64.0
+offset_top = -40.0
 grow_horizontal = 2
 grow_vertical = 0
 

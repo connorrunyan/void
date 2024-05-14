@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cmdoe41o55ct1" path="res://tiles/streight_tile.tscn" id="2_ebcjp"]
 [ext_resource type="PackedScene" uid="uid://dr8huxlckbnym" path="res://fork_tile.tscn" id="3_5l1gf"]
 [ext_resource type="PackedScene" uid="uid://vywfva2silyk" path="res://Tree.tscn" id="3_au4gx"]
-[ext_resource type="PackedScene" uid="uid://3qub768veed7" path="res://CoolFlower.tscn" id="3_prx4b"]
+[ext_resource type="PackedScene" uid="uid://3qub768veed7" path="res://flowers/CoolFlower.tscn" id="3_prx4b"]
 [ext_resource type="PackedScene" uid="uid://dcog1de78nco3" path="res://turn_tile.tscn" id="4_k82mt"]
 
 [node name="Test" type="Node2D"]

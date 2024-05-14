@@ -1,6 +1,5 @@
 [gd_scene load_steps=4 format=3 uid="uid://cmdoe41o55ct1"]
 
-[ext_resource type="Texture2D" uid="uid://c1xit4uibkc00" path="res://tiles/streight/tile_streight.png" id="1_b37mg"]
 [ext_resource type="PackedScene" uid="uid://coq24jslo3rv4" path="res://tile_add_point.tscn" id="2_bfg7k"]
 
 [sub_resource type="GDScript" id="GDScript_ytmfg"]
@@ -23,12 +22,15 @@ func _process(delta):
 	pass
 "
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_g366u"]
+load_path = "res://.godot/imported/tile_streight.png-5f44149f349e2f12a211a944e4306518.ctex"
+
 [node name="streight_tile" type="Node2D"]
 script = SubResource("GDScript_ytmfg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_b37mg")
+texture = SubResource("CompressedTexture2D_g366u")
 
 [node name="TileAddPoint" parent="." instance=ExtResource("2_bfg7k")]
 position = Vector2(255, 0)

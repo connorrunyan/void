@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1xit4uibkc00"
-path="res://.godot/imported/tile_streight.png-5f44149f349e2f12a211a944e4306518.ctex"
+uid="uid://bei3pm2d0e8wr"
+path="res://.godot/imported/tile_straight_horizontal_3.png-2c96071d3345f86440a222b395f5b22b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tiles/streight/tile_streight.png"
-dest_files=["res://.godot/imported/tile_streight.png-5f44149f349e2f12a211a944e4306518.ctex"]
+source_file="res://tiles/streight/tile_straight_horizontal_3.png"
+dest_files=["res://.godot/imported/tile_straight_horizontal_3.png-2c96071d3345f86440a222b395f5b22b.ctex"]
 
 [params]
 
