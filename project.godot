@@ -30,6 +30,10 @@ window/size/viewport_height=540
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
 
+[dotnet]
+
+project/assembly_name="Void Vacation"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
