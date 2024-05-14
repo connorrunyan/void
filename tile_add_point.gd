@@ -134,7 +134,7 @@ func generate_streight(flowers, turrets):
 		elif r == 1:
 			tile = load("res://tiles/streight/DUStreightTile2.tscn").instantiate()
 		else:
-			tile = load("res://tiles/streight/DUStreightTile2.tscn").instantiate()
+			tile = load("res://tiles/streight/DUStreightTile3.tscn").instantiate()
 		new_tile_y -= 1
 
 	elif direction_to_next == Direction.DOWN:
