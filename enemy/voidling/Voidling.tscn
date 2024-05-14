@@ -17,3 +17,7 @@ texture = ExtResource("2_uaxed")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
 shape = SubResource("CircleShape2D_yfrgv")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true

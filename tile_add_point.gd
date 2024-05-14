@@ -33,6 +33,7 @@ const MIN_TURRETS = 1
 const MAX_TURRETS = 3
 
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# roll options
@@ -83,6 +84,7 @@ func add_enemy():
 	enemy.current_tile = get_parent()
 	enemy.target_pos = get_parent().give_center_point()
 	enemy.global_position = global_position
+	
 	get_parent().get_parent().get_parent().add_child(enemy)
 
 func check_if_should_go_away():
