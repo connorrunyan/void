@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://c605voft1ah34"]
+[gd_scene load_steps=6 format=3 uid="uid://c605voft1ah34"]
 
 [ext_resource type="Script" path="res://tiles/Tile.gd" id="1_kxvnd"]
-[ext_resource type="Texture2D" uid="uid://cs2u5a0vs7ud2" path="res://tiles/streight/tile_straight_vertical_2.png" id="2_qgv2u"]
+[ext_resource type="Texture2D" uid="uid://blug65bqov2eo" path="res://tiles/background.png" id="2_g21me"]
+[ext_resource type="Texture2D" uid="uid://crq60pfn1gy4u" path="res://tiles/streight/ziggy point right.png" id="3_jgt3e"]
 [ext_resource type="PackedScene" uid="uid://coq24jslo3rv4" path="res://tile_add_point.tscn" id="3_yxtr2"]
 [ext_resource type="PackedScene" uid="uid://bf25eanti5hg4" path="res://turret.tscn" id="4_s1l20"]
 
@@ -9,7 +10,12 @@
 script = ExtResource("1_kxvnd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_qgv2u")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_g21me")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_jgt3e")
 
 [node name="TileAddPoint" parent="." instance=ExtResource("3_yxtr2")]
 position = Vector2(0, -256)
@@ -28,7 +34,7 @@ visible = false
 position = Vector2(-168, 176)
 
 [node name="PathCenter" type="Node2D" parent="." groups=["Tile"]]
-position = Vector2(188, 0)
+position = Vector2(140, -1)
 
 [node name="PathEnd" type="Node2D" parent="."]
 position = Vector2(0, 256)

@@ -100,7 +100,11 @@ func check_if_should_go_away():
 		check_x += 1
 	var res = Autoload.check_occupied(Vector2i(check_x, check_y))
 	if res:
-		queue_free()
+		make_uninteractable()
+
+func make_uninteractable():
+	modulate = Color.BLACK
+	$Area2D.visible = false
 
 func inform_in_range():
 	pass
@@ -140,15 +144,33 @@ func generate_streight(flowers, turrets):
 		new_tile_y -= 1
 
 	elif direction_to_next == Direction.DOWN:
-		tile = load("res://tiles/streight/UDStreightTile.tscn").instantiate()
+		var r = randi_range(0,2)
+		if r == 0:
+			tile = load("res://tiles/streight/UDStreightTile.tscn").instantiate()
+		elif r == 1:
+			tile = load("res://tiles/streight/UDStreightTile2.tscn").instantiate()
+		else:
+			tile = load("res://tiles/streight/UDStreightTile3.tscn").instantiate()
 		new_tile_y += 1
 
 	elif direction_to_next == Direction.LEFT:
-		tile = load("res://tiles/streight/RLStreightTile.tscn").instantiate()
+		var r = randi_range(0,2)
+		if r == 0:
+			tile = load("res://tiles/streight/RLStreightTile.tscn").instantiate()
+		elif r == 1:
+			tile = load("res://tiles/streight/RLStreightTile2.tscn").instantiate()
+		else:
+			tile = load("res://tiles/streight/RLStreightTile3.tscn").instantiate()
 		new_tile_x -= 1
 
 	elif direction_to_next == Direction.RIGHT:
-		tile = load("res://tiles/streight/LRStreightTIle.tscn").instantiate()
+		var r = randi_range(0,2)
+		if r == 0:
+			tile = load("res://tiles/streight/LRStreightTIle.tscn").instantiate()
+		elif r == 1:
+			tile = load("res://tiles/streight/LRStreightTIle2.tscn").instantiate()
+		else:
+			tile = load("res://tiles/streight/LRStreightTIle3.tscn").instantiate()
 		new_tile_x += 1
 	
 	tile.x_coord = new_tile_x

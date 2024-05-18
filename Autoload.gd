@@ -1,4 +1,7 @@
-extends Node
+extends AudioStreamPlayer
+
+var calm_music = preload("res://Equatorial Complex.mp3")
+var fight_music = preload("res://Burn The World Waltz .mp3")
 
 var occupiedTiles: Array[Vector2i] = []
 
@@ -9,6 +12,16 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func set_music_calm():
+	stop()
+	stream = calm_music
+	play(0.0)
+
+func set_music_fight():
+	stop()
+	stream = fight_music
+	play(0.0)
 
 func add_occupied(v:Vector2i):
 	occupiedTiles.append(v)

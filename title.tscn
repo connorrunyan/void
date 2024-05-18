@@ -1,0 +1,219 @@
+[gd_scene load_steps=5 format=3 uid="uid://cq5q6in0ho10t"]
+
+[ext_resource type="Script" path="res://title.gd" id="1_p18vd"]
+[ext_resource type="Texture2D" uid="uid://noc0wyes27kl" path="res://truck.png" id="2_f61dw"]
+
+[sub_resource type="Animation" id="Animation_uypf2"]
+resource_name = "fade_to_menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Intro:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Intro:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Menu:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yn44w"]
+_data = {
+"fade_to_menu": SubResource("Animation_uypf2")
+}
+
+[node name="Title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_p18vd")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 101.0
+grow_horizontal = 2
+text = "Credits:
+Angie/PixelatedFairy - Art,     Connor - Programming,     Denver - Art,     Deuwa - Programming"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -101.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Acknowledgments:
+\"Burn The World Waltz\" Kevin MacLeod (incompetech.com) and
+\"Equatorial Complex \" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/"
+horizontal_alignment = 1
+
+[node name="Menu" type="CenterContainer" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Menu/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+text = " V   O   I   D 
+ V A C A T I O N "
+horizontal_alignment = 1
+
+[node name="play_button" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="Button2" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+text = "Options
+"
+
+[node name="Button3" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+text = "Exit
+"
+
+[node name="Intro" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Intro"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Intro/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 8
+mouse_default_cursor_shape = 2
+text = "                                                  Continue                                                  "
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Intro/VBoxContainer3"]
+layout_mode = 2
+alignment = 2
+
+[node name="Label" type="Label" parent="Intro/VBoxContainer3/VBoxContainer"]
+layout_mode = 2
+text = "
+Took the wrong exit off of the highway.
+Ended up in the void.  This family vactation is ruined.
+. . .          
+No.  Can still salvage this.  I'll explore the void,
+find new pathways, and escape.
+. . .          
+I won't let this become a:
+ "
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yn44w")
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 197.0
+offset_right = 229.0
+offset_bottom = 378.0
+texture = ExtResource("2_f61dw")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 730.0
+offset_top = 199.0
+offset_right = 959.0
+offset_bottom = 380.0
+texture = ExtResource("2_f61dw")
+expand_mode = 1
+flip_h = true
+
+[connection signal="pressed" from="Menu/VBoxContainer/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Menu/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Intro/VBoxContainer3/Button" to="." method="_on_button_pressed"]

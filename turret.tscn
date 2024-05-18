@@ -10,6 +10,7 @@ size = Vector2(128, 128)
 radius = 247.032
 
 [node name="Turret" type="StaticBody2D" groups=["Turret"]]
+z_index = 10
 script = ExtResource("1_sdgxo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
