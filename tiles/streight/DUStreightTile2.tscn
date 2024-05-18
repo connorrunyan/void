@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://tiles/Tile.gd" id="1_kxvnd"]
 [ext_resource type="Texture2D" uid="uid://cs2u5a0vs7ud2" path="res://tiles/streight/tile_straight_vertical_2.png" id="2_qgv2u"]
 [ext_resource type="PackedScene" uid="uid://coq24jslo3rv4" path="res://tile_add_point.tscn" id="3_yxtr2"]
-[ext_resource type="PackedScene" uid="uid://bf25eanti5hg4" path="res://turret.tscn" id="4_s1l20"]
+[ext_resource type="PackedScene" uid="uid://bf25eanti5hg4" path="res://turretBase.tscn" id="4_s1l20"]
 
 [node name="DuStreightTile2" type="Node2D"]
 script = ExtResource("1_kxvnd")

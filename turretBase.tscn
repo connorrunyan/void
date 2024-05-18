@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://bf25eanti5hg4"]
+
+[ext_resource type="Script" path="res://turretClass.gd" id="1_7rdne"]
+[ext_resource type="Texture2D" uid="uid://fuyasx4vn8cn" path="res://icon.svg" id="2_b145b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iy1lp"]
+size = Vector2(128, 128)
+
+[node name="TurretBase" type="StaticBody2D" groups=["Turret"]]
+script = ExtResource("1_7rdne")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_iy1lp")
+
+[node name="TowerBody" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 0.0160625, 1)
+texture = ExtResource("2_b145b")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -104.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="pressed" from="Control/PanelContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/HBoxContainer/Button3" to="." method="_on_button_3_pressed"]

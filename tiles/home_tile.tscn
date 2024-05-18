@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://tiles/Tile.gd" id="1_82mvd"]
 [ext_resource type="Texture2D" uid="uid://rerwl3k3xpl1" path="res://tiles/tile_center.png" id="1_rxjsk"]
 [ext_resource type="PackedScene" uid="uid://coq24jslo3rv4" path="res://tile_add_point.tscn" id="2_xw1oa"]
-[ext_resource type="PackedScene" uid="uid://bf25eanti5hg4" path="res://turret.tscn" id="4_p3q34"]
+[ext_resource type="PackedScene" uid="uid://bf25eanti5hg4" path="res://turretBase.tscn" id="4_vmcsk"]
 [ext_resource type="PackedScene" uid="uid://bo2xlwoyfgg8d" path="res://van.tscn" id="5_7qpx7"]
 
 [node name="HomeTile" type="Node2D" groups=["Tile"]]
@@ -28,16 +28,16 @@ position = Vector2(-255, 0)
 position = Vector2(255, 0)
 direction_to_next = 3
 
-[node name="Turret1" parent="." instance=ExtResource("4_p3q34")]
+[node name="Turret1" parent="." instance=ExtResource("4_vmcsk")]
 position = Vector2(189, -188)
 
-[node name="Turret2" parent="." instance=ExtResource("4_p3q34")]
+[node name="Turret2" parent="." instance=ExtResource("4_vmcsk")]
 position = Vector2(-188, -187)
 
-[node name="Turret3" parent="." instance=ExtResource("4_p3q34")]
+[node name="Turret3" parent="." instance=ExtResource("4_vmcsk")]
 position = Vector2(-188, 188)
 
-[node name="Turret4" parent="." instance=ExtResource("4_p3q34")]
+[node name="Turret4" parent="." instance=ExtResource("4_vmcsk")]
 position = Vector2(189, 187)
 
 [node name="PathCenter" type="Node2D" parent="."]

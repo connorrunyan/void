@@ -71,6 +71,8 @@ func _process(delta):
 			interact()
 	else:
 		sprite.modulate = Color.WHITE
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			$Control.visible = false
 	
 	if Input.is_action_just_pressed("next_wave"):
 		add_enemy()
