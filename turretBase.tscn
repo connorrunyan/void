@@ -1,18 +1,29 @@
-[gd_scene load_steps=4 format=3 uid="uid://bf25eanti5hg4"]
+[gd_scene load_steps=5 format=3 uid="uid://bf25eanti5hg4"]
 
-[ext_resource type="Script" path="res://turretClass.gd" id="1_7rdne"]
+[ext_resource type="Script" path="res://turretBase.gd" id="1_kn523"]
 [ext_resource type="Texture2D" uid="uid://fuyasx4vn8cn" path="res://icon.svg" id="2_b145b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iy1lp"]
-size = Vector2(128, 128)
+size = Vector2(128, 96)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_csdef"]
+size = Vector2(187.542, 153.875)
 
 [node name="TurretBase" type="StaticBody2D" groups=["Turret"]]
-script = ExtResource("1_7rdne")
+script = ExtResource("1_kn523")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -32)
+scale = Vector2(1.5, 2)
 shape = SubResource("RectangleShape2D_iy1lp")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-9.53674e-07, -96)
+scale = Vector2(1.5, 2)
+shape = SubResource("RectangleShape2D_csdef")
+disabled = true
 
 [node name="TowerBody" type="Sprite2D" parent="."]
 modulate = Color(0, 1, 0.0160625, 1)

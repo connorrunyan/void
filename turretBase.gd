@@ -5,9 +5,11 @@ extends StaticBody2D
 @onready var button2: Button = $Control/PanelContainer/HBoxContainer/Button2
 @onready var button3: Button = $Control/PanelContainer/HBoxContainer/Button3
 @onready var sprite = $TowerBody
+@onready var ButtonCollision = $Area2D/CollisionShape2D2
 
 var LaserTowerScene = preload("res://TurretLaser.tscn")
 var BombTowerScene = preload("res://TurretBomber.tscn")
+var AnnihilatorTowerScene = preload("res://TurretAnnihilator.tscn")
 
 var hovered = false
 
@@ -19,11 +21,11 @@ func _init_turret():
 func interact():
 	for node in get_tree().get_nodes_in_group("TurretBase"):
 		node.hide_control()
-		
 	button1.text = "LASER"
 	button2.text = "BOMBER"
-	button3.text = "3"
+	button3.text = "ANNIHILATOR"
 	$Control.visible = true
+	ButtonCollision.disabled = false
 
 func _ready(): 
 	_init_turret() 
@@ -37,6 +39,7 @@ func _process(delta):
 		sprite.modulate = Color.SEA_GREEN
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			$Control.visible = false
+			ButtonCollision.disabled = true
 
 func swap_turret(newTurretScene):
 	# Instantiates the new turret
@@ -64,4 +67,4 @@ func _on_button_2_pressed():
 	swap_turret(BombTowerScene)
 
 func _on_button_3_pressed():
-	pass # Replace with function body.
+	swap_turret(AnnihilatorTowerScene)

@@ -1,34 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://coq24jslo3rv4"]
+[gd_scene load_steps=4 format=3 uid="uid://bf25eanti5hg4"]
 
-[ext_resource type="Script" path="res://tile_add_point.gd" id="1_7u5rd"]
-[ext_resource type="Texture2D" uid="uid://fuyasx4vn8cn" path="res://icon.svg" id="1_l64dy"]
+[ext_resource type="Script" path="res://turretBase.gd" id="1_kn523"]
+[ext_resource type="Texture2D" uid="uid://fuyasx4vn8cn" path="res://icon.svg" id="2_b145b"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xie8"]
-size = Vector2(38, 39)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iy1lp"]
+size = Vector2(128, 128)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3dfd"]
-size = Vector2(231, 199)
-
-[node name="TileAddPoint" type="Node2D" groups=["Interactable", "TileAddPoint"]]
-script = ExtResource("1_7u5rd")
+[node name="TurretBase" type="StaticBody2D" groups=["Turret"]]
+script = ExtResource("1_kn523")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -0.5)
-scale = Vector2(2, 2)
-shape = SubResource("RectangleShape2D_8xie8")
+shape = SubResource("RectangleShape2D_iy1lp")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -59)
-shape = SubResource("RectangleShape2D_b3dfd")
-disabled = true
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_l64dy")
+[node name="TowerBody" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 0.0160625, 1)
+texture = ExtResource("2_b145b")
 
 [node name="Control" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -60,8 +51,6 @@ layout_mode = 2
 
 [node name="Button3" type="Button" parent="Control/PanelContainer/HBoxContainer"]
 layout_mode = 2
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

@@ -10,6 +10,8 @@ var enemy_scene = preload("res://enemy/voidling/Voidling.tscn")
 @onready var button2: Button = $Control/PanelContainer/HBoxContainer/Button2
 @onready var button3: Button = $Control/PanelContainer/HBoxContainer/Button3
 @onready var audio : AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var ButtonCollision = $Area2D/CollisionShape2D2
+
 
 @export var direction_to_next = Direction.LEFT
 
@@ -69,11 +71,13 @@ func _process(delta):
 		sprite.modulate = Color.BLUE
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) || Input.is_action_just_pressed("interact"):
 			interact()
+			
 	else:
 		sprite.modulate = Color.WHITE
-		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-			$Control.visible = false
-	
+		#if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			#$Control.visible = false
+			#ButtonCollision.disabled = true
+
 	if Input.is_action_just_pressed("next_wave"):
 		add_enemy()
 
@@ -124,6 +128,7 @@ func interact():
 	button3.text = option3direction + "\n" + str(option3flowers) +  " flowers\n" + str(option3turrets) + " turrets\n"
 	audio.play()
 	$Control.visible = true
+	#ButtonCollision.disabled = false
 
 func generate_streight(flowers, turrets):
 	var new_tile_x = get_parent().x_coord

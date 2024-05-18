@@ -24,7 +24,7 @@ func update_shadow():
 	ShadowSprite.position.y = lerp(0, ShadowDisplacement, distance_ratio)
 	
 	# Adjust shadow's scale to decrease as it gets closer
-	var scale_factor = lerp(0.2, 0.7, distance_ratio) 
+	var scale_factor = lerp(0.05, 0.6, distance_ratio) 
 	ShadowSprite.scale = Vector2(scale_factor, scale_factor)
 
 func _process(delta):

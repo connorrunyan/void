@@ -16,7 +16,6 @@ func _ready():
 	_init_turret() 
 	print(global_position)
 
-# Overriding the damage method to include laser visualization
 func damage(delta):
 	if current_targets.size() > 0:
 		hit_timer -= delta
