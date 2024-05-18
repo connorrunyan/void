@@ -34,6 +34,6 @@ func _on_button_2_pressed():
 
 #quit
 func _on_button_3_pressed():
-	pass # Replace with function body.
+	get_tree().quit()
 
 
