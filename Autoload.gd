@@ -1,5 +1,7 @@
 extends AudioStreamPlayer
 
+var high_score = 0
+
 var calm_music = preload("res://Equatorial Complex.mp3")
 var fight_music = preload("res://Burn The World Waltz .mp3")
 
@@ -25,6 +27,9 @@ func set_music_fight():
 
 func add_occupied(v:Vector2i):
 	occupiedTiles.append(v)
+
+func submit_high_score(s):
+	high_score = s
 
 func check_occupied(v:Vector2i):
 	var result = false

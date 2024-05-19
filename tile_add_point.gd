@@ -3,13 +3,14 @@ extends Node2D
 enum Direction {UP, DOWN, LEFT, RIGHT}
 
 var enemy_scene = preload("res://enemy/voidling/Voidling.tscn")
+var bigmund_scene = preload("res://enemy/bigmund/Bigmund.tscn")
 
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var control : Control = $Control
 @onready var button1: Button = $Control/PanelContainer/HBoxContainer/Button
 @onready var button2: Button = $Control/PanelContainer/HBoxContainer/Button2
 @onready var button3: Button = $Control/PanelContainer/HBoxContainer/Button3
-@onready var audio : AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var audio : AudioStreamPlayer = $AudioStreamPlayer
 
 @export var direction_to_next = Direction.LEFT
 
@@ -71,21 +72,10 @@ func _process(delta):
 			interact()
 	else:
 		sprite.modulate = Color.WHITE
-	
-	if Input.is_action_just_pressed("next_wave"):
-		add_enemy()
 
 func _physics_process(delta):
 	# add a check to see if our target would be filled
 	check_if_should_go_away()
-
-func add_enemy():
-	var enemy = enemy_scene.instantiate()
-	enemy.current_tile = get_parent()
-	enemy.target_pos = get_parent().give_center_point()
-	enemy.global_position = global_position
-	
-	get_parent().get_parent().get_parent().add_child(enemy)
 
 func check_if_should_go_away():
 	var check_x = get_parent().x_coord
@@ -121,11 +111,11 @@ func interact():
 	for node in get_tree().get_nodes_in_group("TileAddPoint"):
 		node.hide_control()
 		
-	button1.text = option1direction + "\n" + str(option1flowers) +  " flowers\n" + str(option1turrets) + " turrets\n"
-	button2.text = option2direction + "\n" + str(option2flowers) +  " flowers\n" + str(option2turrets) + " turrets\n"
-	button3.text = option3direction + "\n" + str(option3flowers) +  " flowers\n" + str(option3turrets) + " turrets\n"
-	audio.play()
-	$Control.visible = true
+		button1.text = option1direction + "\n" + str(option1flowers) +  " flowers\n" + str(option1turrets) + " turrets\n"
+		button2.text = option2direction + "\n" + str(option2flowers) +  " flowers\n" + str(option2turrets) + " turrets\n"
+		button3.text = option3direction + "\n" + str(option3flowers) +  " flowers\n" + str(option3turrets) + " turrets\n"
+		audio.play()
+		$Control.visible = true
 
 func generate_streight(flowers, turrets):
 	var new_tile_x = get_parent().x_coord
@@ -250,19 +240,51 @@ func generate_left_turn(flowers, turrets):
 	Autoload.occupiedTiles.append(Vector2i(new_tile_x, new_tile_y))
 	get_parent().get_parent().add_child(tile)
 
+func spawn_voidling(delay):
+	var enemy = enemy_scene.instantiate()
+	enemy.current_tile = get_parent()
+	enemy.target_pos = get_parent().give_center_point()
+	enemy.global_position = global_position
+	enemy.delay = delay
+	get_parent().get_parent().get_parent().add_child(enemy)
+
+func spawn_bigmund(delay):
+	var enemy = bigmund_scene.instantiate()
+	enemy.current_tile = get_parent()
+	enemy.target_pos = get_parent().give_center_point()
+	enemy.global_position = global_position
+	enemy.delay = delay
+	get_parent().get_parent().get_parent().add_child(enemy)
+
 func _on_button_pressed():
-	generate(option1direction, option1flowers, option1turrets)
-	queue_free()
+	for node in get_tree().get_nodes_in_group("TileAddPoint"):
+		node.hide_control()
+	if Inventory.hopes >= 1:
+		generate(option1direction, option1flowers, option1turrets)
+		queue_free()
+	else:
+		$BuzzerAudio.play()
 
 func _on_button_2_pressed():
-	generate(option2direction, option2flowers, option2turrets)
-	queue_free()
+	for node in get_tree().get_nodes_in_group("TileAddPoint"):
+		node.hide_control()
+	if Inventory.hopes >= 1:
+		generate(option2direction, option2flowers, option2turrets)
+		queue_free()
+	else:
+		$BuzzerAudio.play()
 
 func _on_button_3_pressed():
-	generate(option3direction, option3flowers, option3turrets)
-	queue_free()
+	for node in get_tree().get_nodes_in_group("TileAddPoint"):
+		node.hide_control()
+	if Inventory.hopes >= 1:
+		generate(option3direction, option3flowers, option3turrets)
+		queue_free()
+	else:
+		$BuzzerAudio.play()
 
 func generate(dir, flowers, turrets):
+	Inventory.spend_hope()
 	if dir == "left":
 		generate_left_turn(flowers, turrets)
 	elif dir == "right":

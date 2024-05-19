@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 5000.0
+const SPEED = 1000.0
 
 var target_pos
 var current_tile
@@ -8,9 +8,9 @@ var heading_to_midpoint = true
 var arrived_in_center = false
 @onready var death = $Timer
 var hit_timer = 1.0
-var hit_delay = 1.0
+var hit_delay = 5.0
 
-var health = 5
+var health = 50
 var delay
 
 static var enemy_count = 0
@@ -40,7 +40,7 @@ func _physics_process(delta):
 			hit_timer -= delta
 		
 		if hit_timer <= 0.0:
-			get_tree().get_first_node_in_group("Van").hit_van(1)
+			get_tree().get_first_node_in_group("Van").hit_van(10)
 			hit_timer = hit_delay
 		# if we have a target pos, see if we're close to it.  if so, get next target
 		# if we have a target pos and we're not close to it, move towards it

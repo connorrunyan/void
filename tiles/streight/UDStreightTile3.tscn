@@ -31,7 +31,7 @@ position = Vector2(158, 175)
 
 [node name="Turret3" parent="." instance=ExtResource("5_aqmui")]
 visible = false
-position = Vector2(160, -153)
+position = Vector2(185, -153)
 
 [node name="PathCenter" type="Node2D" parent="." groups=["Tile"]]
 position = Vector2(140, -1)

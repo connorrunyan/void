@@ -22,7 +22,7 @@ position = Vector2(-256, 0)
 
 [node name="Turret1" parent="." instance=ExtResource("5_6odj0")]
 visible = false
-position = Vector2(3, 171)
+position = Vector2(-185, 171)
 
 [node name="Turret2" parent="." instance=ExtResource("5_6odj0")]
 visible = false

@@ -67,6 +67,7 @@ func damage(delta):
 			lasertime = 0.2
 			hit_timer = hit_delay
 			current_targets[0].take_damage(damagepershot)
+			$AudioStreamPlayer2D.play()
 
 # Called every frame
 func _process(delta):

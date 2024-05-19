@@ -14,3 +14,6 @@ func _process(delta):
 
 func hit_van(dmg):
 	health -= dmg
+	$AudioStreamPlayer2D.play()
+	if health <= 0:
+		get_tree().change_scene_to_file("res://title.tscn")

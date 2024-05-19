@@ -23,7 +23,7 @@ direction_to_next = 1
 
 [node name="Turret1" parent="." instance=ExtResource("5_oybku")]
 visible = false
-position = Vector2(-152, 0)
+position = Vector2(-177, 188)
 
 [node name="Turret2" parent="." instance=ExtResource("5_oybku")]
 visible = false

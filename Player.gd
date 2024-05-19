@@ -4,7 +4,8 @@ const SPEED = 300.0
 const INTERACT_DISTANCE = 50.0
 
 @onready var camera = $Camera2D
-@onready var label = $CanvasLayer/UI/PanelContainer/HBoxContainer/VBoxContainer/FlowerLabel
+@onready var flower_label = $CanvasLayer/UI/PanelContainer/HBoxContainer/VBoxContainer/FlowerLabel
+@onready var hopes_label = $CanvasLayer/UI/PanelContainer/HBoxContainer/VBoxContainer/Label2
 @onready var pick_audio = $PickAudioStreamPlayer
 @onready var new_tile_audio = $NewTileAudioStreamPlayer
 
@@ -27,7 +28,9 @@ func _process(delta):
 	handle_cooldowns(delta)
 	
 	# update label
-	label.text = " Flowers: " + str(Inventory.cool_flower_count) + " "
+	flower_label.text = " Flowers: " + str(Inventory.cool_flower_count) + " "
+	hopes_label.text = " Hope: " + str(Inventory.hopes) + " "
+	
 
 func handle_cooldowns(delta):
 	if mortar_timer <= 0.0:
@@ -66,6 +69,9 @@ func handle_movement(delta):
 		dy += 1.0
 	var offset = Vector2(dx, dy) * SPEED * delta
 	position += offset
+
+func update_timer_label(cur_wave, cur_time):
+	$CanvasLayer/UI/PanelContainer/HBoxContainer/TimerLabel.text = "Wave: " + str(cur_wave) + "\nNext Wave In: " + str("%.2f" % cur_time) + "s"
 
 func handle_camera_movmement(delta):
 	#camera movement
