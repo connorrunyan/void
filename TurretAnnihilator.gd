@@ -2,7 +2,7 @@ extends TOWER
 
 class_name AnnihilatorTower
 
-var DPS = 0.1
+var DPS = 5
 var laser_time = false
 
 var on_cooldown = false 

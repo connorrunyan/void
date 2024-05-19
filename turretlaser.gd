@@ -11,7 +11,7 @@ func _init_turret():
 	print("Laser Turret Initialized")
 
 func _ready():
-	damage_per_shot = 2  
+	damage_per_shot = 4  
 	hit_delay = 1.0    
 	_init_turret() 
 	print(global_position)

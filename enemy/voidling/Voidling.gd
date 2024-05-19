@@ -10,7 +10,7 @@ var arrived_in_center = false
 var hit_timer = 1.0
 var hit_delay = 1.0
 
-var health = 5.0
+var health = 15.0
 
 static var enemy_count = 0
 
