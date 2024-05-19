@@ -1,24 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://qefrq6jtpcft"]
+[gd_scene load_steps=6 format=3 uid="uid://qefrq6jtpcft"]
 
 [ext_resource type="Script" path="res://tiles/Tile.gd" id="1_5x86f"]
-[ext_resource type="Texture2D" uid="uid://bqrefuq330mxd" path="res://tiles/turn/tile_turn_right.png" id="2_kvqhj"]
+[ext_resource type="Texture2D" uid="uid://blug65bqov2eo" path="res://tiles/background.png" id="2_2qa0e"]
 [ext_resource type="PackedScene" uid="uid://coq24jslo3rv4" path="res://tile_add_point.tscn" id="3_ncdcx"]
-[ext_resource type="PackedScene" uid="uid://bf25eanti5hg4" path="res://turret.tscn" id="4_n4nxh"]
+[ext_resource type="Texture2D" uid="uid://brojgyvbkk6d2" path="res://tiles/L to T turn.png" id="3_p4fh7"]
+[ext_resource type="PackedScene" uid="uid://c3cg56bu11bry" path="res://turretBase.tscn" id="4_n4nxh"]
 
 [node name="DlTurnTile" type="Node2D"]
 script = ExtResource("1_5x86f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_kvqhj")
-flip_v = true
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_2qa0e")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_p4fh7")
 
 [node name="TileAddPoint" parent="." instance=ExtResource("3_ncdcx")]
 position = Vector2(-256, 0)
 
 [node name="Turret1" parent="." instance=ExtResource("4_n4nxh")]
 visible = false
-position = Vector2(-114, -89)
+position = Vector2(-118, -130)
 
 [node name="Turret2" parent="." instance=ExtResource("4_n4nxh")]
 visible = false

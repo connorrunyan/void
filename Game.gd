@@ -5,7 +5,7 @@ extends Node2D
 var voidling_scene = preload("res://enemy/voidling/Voidling.tscn")
 
 var wave_count = 0
-var timer_delay = 10
+var timer_delay = 20
 
 var in_combat = false
 
@@ -39,7 +39,7 @@ func _process(delta):
 func spawn_wave(num):
 	Inventory.add_hope()
 	var add_points = get_tree().get_nodes_in_group("TileAddPoint")
-	var num_voidlings = ( 3 * num ) + 2
+	var num_voidlings = ( 2 * num ) + 1
 	var num_bigmunds = num/5
 	for i in num_voidlings:
 		for point in add_points:
@@ -51,7 +51,7 @@ func spawn_wave(num):
 func _on_timer_timeout():
 	# go to next wave, start spawning it
 	wave_count += 1
-	timer_delay += 3
+	timer_delay += 1
 	timer.wait_time = timer_delay
 	spawn_wave(wave_count)
 	timer.start()

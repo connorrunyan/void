@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3cg56bu11bry"]
+
+[ext_resource type="Script" path="res://turretBase.gd" id="1_kn523"]
+[ext_resource type="Texture2D" uid="uid://da6lhom4eecb6" path="res://turret_art/turret_plot.png" id="2_vcg0c"]
+[ext_resource type="AudioStream" uid="uid://dp1m48o6ss3vy" path="res://sound_effects/Powerup.wav" id="3_kxkad"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iy1lp"]
+size = Vector2(67.3333, 62.5)
+
+[node name="TurretBase" type="StaticBody2D" groups=["Turret"]]
+z_index = 25
+script = ExtResource("1_kn523")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.499998, 1.5)
+scale = Vector2(1.5, 2)
+shape = SubResource("RectangleShape2D_iy1lp")
+
+[node name="TowerBody" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_vcg0c")
+
+[node name="Control" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -117.0
+offset_bottom = -77.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="Control/PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kxkad")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="pressed" from="Control/PanelContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Control/PanelContainer/HBoxContainer/Button3" to="." method="_on_button_3_pressed"]

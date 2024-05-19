@@ -1,16 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://db2ke8wd10v1v"]
+[gd_scene load_steps=6 format=3 uid="uid://db2ke8wd10v1v"]
 
 [ext_resource type="Script" path="res://tiles/Tile.gd" id="1_4jvlv"]
-[ext_resource type="Texture2D" uid="uid://bqrefuq330mxd" path="res://tiles/turn/tile_turn_right.png" id="2_2bkgh"]
+[ext_resource type="Texture2D" uid="uid://blug65bqov2eo" path="res://tiles/background.png" id="2_8tjtb"]
+[ext_resource type="Texture2D" uid="uid://grad4h5ppfdc" path="res://tiles/L to B turn.png" id="3_6itn7"]
 [ext_resource type="PackedScene" uid="uid://coq24jslo3rv4" path="res://tile_add_point.tscn" id="3_dhry5"]
-[ext_resource type="PackedScene" uid="uid://bf25eanti5hg4" path="res://turret.tscn" id="4_wgf56"]
+[ext_resource type="PackedScene" uid="uid://c3cg56bu11bry" path="res://turretBase.tscn" id="4_wgf56"]
 
 [node name="UlTurnTile" type="Node2D"]
 script = ExtResource("1_4jvlv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_2bkgh")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_8tjtb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_6itn7")
 
 [node name="TileAddPoint" parent="." instance=ExtResource("3_dhry5")]
 position = Vector2(-256, 0)

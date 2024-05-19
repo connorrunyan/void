@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://blug65bqov2eo" path="res://tiles/background.png" id="2_nnqcq"]
 [ext_resource type="Texture2D" uid="uid://c33t0x20dbbk5" path="res://tiles/streight/Ziggy point up.png" id="3_vkury"]
 [ext_resource type="PackedScene" uid="uid://coq24jslo3rv4" path="res://tile_add_point.tscn" id="4_oeq63"]
-[ext_resource type="PackedScene" uid="uid://bf25eanti5hg4" path="res://turret.tscn" id="5_foafj"]
+[ext_resource type="PackedScene" uid="uid://c3cg56bu11bry" path="res://turretBase.tscn" id="5_sisx2"]
 
 [node name="RlStreightTile" type="Node2D"]
 script = ExtResource("1_te4o6")
@@ -20,20 +20,20 @@ texture = ExtResource("3_vkury")
 [node name="TileAddPoint" parent="." instance=ExtResource("4_oeq63")]
 position = Vector2(-256, 0)
 
-[node name="Turret1" parent="." instance=ExtResource("5_foafj")]
-visible = false
-position = Vector2(3, 171)
-
-[node name="Turret2" parent="." instance=ExtResource("5_foafj")]
-visible = false
-position = Vector2(173, -166)
-
-[node name="Turret3" parent="." instance=ExtResource("5_foafj")]
-visible = false
-position = Vector2(-168, -159)
-
 [node name="PathCenter" type="Node2D" parent="."]
 position = Vector2(-4, -132)
 
 [node name="PathEnd" type="Node2D" parent="."]
 position = Vector2(256, 0)
+
+[node name="Turret1" parent="." instance=ExtResource("5_sisx2")]
+visible = false
+position = Vector2(174, 167)
+
+[node name="Turret2" parent="." instance=ExtResource("5_sisx2")]
+visible = false
+position = Vector2(-180, 158)
+
+[node name="Turret3" parent="." instance=ExtResource("5_sisx2")]
+visible = false
+position = Vector2(-2, 3)

@@ -10,13 +10,13 @@ var arrived_in_center = false
 var hit_timer = 1.0
 var hit_delay = 5.0
 
-var health = 50
+var health = 100
 var delay
 
 static var enemy_count = 0
 
 func take_damage(amount):
-	$AudioStreamPlayer2D.play()
+	#$AudioStreamPlayer2D.play()
 	health -= amount
 	print("Enemy ", self.name, " took ", amount, " damage. Health: ", health)
 	if health <= 0:
@@ -29,6 +29,7 @@ func die():
 	queue_free()
 	
 func _physics_process(delta):
+	$Label.text = str(int(health)) + " / 100"
 	delay -= delta
 	if delay <= 0.0:
 		visible = true

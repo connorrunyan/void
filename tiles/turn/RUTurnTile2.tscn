@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://fvhegpvada45"]
+
+[ext_resource type="Script" path="res://tiles/Tile.gd" id="1_h7gvx"]
+[ext_resource type="Texture2D" uid="uid://blug65bqov2eo" path="res://tiles/background.png" id="2_i4k40"]
+[ext_resource type="Texture2D" uid="uid://dx1bfgf71fseq" path="res://tiles/T to R short turn.png" id="3_rwcpb"]
+[ext_resource type="PackedScene" uid="uid://coq24jslo3rv4" path="res://tile_add_point.tscn" id="4_x2kk5"]
+[ext_resource type="PackedScene" uid="uid://c3cg56bu11bry" path="res://turretBase.tscn" id="5_7lbj5"]
+
+[node name="RuTurnTile" type="Node2D"]
+script = ExtResource("1_h7gvx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_i4k40")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_rwcpb")
+
+[node name="TileAddPoint" parent="." instance=ExtResource("4_x2kk5")]
+position = Vector2(0, -256)
+direction_to_next = 0
+
+[node name="Turret1" parent="." instance=ExtResource("5_7lbj5")]
+visible = false
+position = Vector2(144, 168)
+
+[node name="Turret2" parent="." instance=ExtResource("5_7lbj5")]
+visible = false
+position = Vector2(-117, 134)
+
+[node name="Turret3" parent="." instance=ExtResource("5_7lbj5")]
+visible = false
+position = Vector2(-112, -87)
+
+[node name="PathCenter" type="Node2D" parent="."]
+position = Vector2(77, -101)
+
+[node name="PathEnd" type="Node2D" parent="."]
+position = Vector2(256, 0)

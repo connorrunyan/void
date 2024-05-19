@@ -10,11 +10,10 @@ const INTERACT_DISTANCE = 50.0
 @onready var new_tile_audio = $NewTileAudioStreamPlayer
 
 var mortar_timer = 0.0
-var mortar_cooldown = 45.0
-var railgun_timer = 0.0
-var railgun_cooldown = 150.0
+var mortar_cooldown = 10.0
 @onready var mortar_timer_label = $CanvasLayer/UI/PanelContainer/HBoxContainer/PanelContainer/VBoxContainer/MortarTimerLabel
-@onready var railgun_timer_label = $CanvasLayer/UI/PanelContainer/HBoxContainer/PanelContainer2/VBoxContainer/RailgunTimerLabel
+
+var BombScene = preload("res://Bullet1.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,23 +36,12 @@ func handle_cooldowns(delta):
 		# mortar ready
 		mortar_timer_label.text = "READY"
 		if Input.is_action_just_pressed("mortar"):
-			# TODO fire mortar at cursor
+			fire_mortar()
 			mortar_timer = mortar_cooldown
 			mortar_timer_label.text = str("%.2f" % mortar_timer)
 	else:
 		mortar_timer -= delta
 		mortar_timer_label.text = str("%.2f" % mortar_timer)
-	
-	if railgun_timer <= 0.0:
-		railgun_timer_label.text = "READY"
-		if Input.is_action_just_pressed("railgun"):
-			# TODO fire railgun at target
-			railgun_timer = railgun_cooldown
-			railgun_timer_label.text = str("%.2f" % railgun_timer)
-	else:
-		railgun_timer -= delta
-		railgun_timer_label.text = str("%.2f" % railgun_timer)
-
 
 func handle_movement(delta):
 	# movement
@@ -72,6 +60,12 @@ func handle_movement(delta):
 
 func update_timer_label(cur_wave, cur_time):
 	$CanvasLayer/UI/PanelContainer/HBoxContainer/TimerLabel.text = "Wave: " + str(cur_wave) + "\nNext Wave In: " + str("%.2f" % cur_time) + "s"
+
+func fire_mortar():
+	var bomb = BombScene.instantiate()
+	get_parent().add_child(bomb)
+	var global_mouse_pos = get_global_mouse_position()
+	bomb.start(Vector2(0,0), global_mouse_pos, 10)
 
 func handle_camera_movmement(delta):
 	#camera movement

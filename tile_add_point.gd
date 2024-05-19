@@ -11,6 +11,7 @@ var bigmund_scene = preload("res://enemy/bigmund/Bigmund.tscn")
 @onready var button2: Button = $Control/PanelContainer/HBoxContainer/Button2
 @onready var button3: Button = $Control/PanelContainer/HBoxContainer/Button3
 @onready var audio : AudioStreamPlayer = $AudioStreamPlayer
+@onready var ButtonCollision = $Area2D/CollisionShape2D2
 
 @export var direction_to_next = Direction.LEFT
 
@@ -29,7 +30,7 @@ var option2turrets
 var option3turrets
 
 const MIN_FLOWERS = 1
-const MAX_FLOWERS = 10
+const MAX_FLOWERS = 3
 const MIN_TURRETS = 1
 const MAX_TURRETS = 3
 
@@ -70,6 +71,7 @@ func _process(delta):
 		sprite.modulate = Color.BLUE
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) || Input.is_action_just_pressed("interact"):
 			interact()
+			
 	else:
 		sprite.modulate = Color.WHITE
 
@@ -111,11 +113,11 @@ func interact():
 	for node in get_tree().get_nodes_in_group("TileAddPoint"):
 		node.hide_control()
 		
-		button1.text = option1direction + "\n" + str(option1flowers) +  " flowers\n" + str(option1turrets) + " turrets\n"
-		button2.text = option2direction + "\n" + str(option2flowers) +  " flowers\n" + str(option2turrets) + " turrets\n"
-		button3.text = option3direction + "\n" + str(option3flowers) +  " flowers\n" + str(option3turrets) + " turrets\n"
-		audio.play()
-		$Control.visible = true
+	button1.text = option1direction + "\n" + str(option1flowers) +  " flowers\n" + str(option1turrets) + " turrets\n Cost: 1 Hope"
+	button2.text = option2direction + "\n" + str(option2flowers) +  " flowers\n" + str(option2turrets) + " turrets\n Cost: 1 Hope"
+	button3.text = option3direction + "\n" + str(option3flowers) +  " flowers\n" + str(option3turrets) + " turrets\n Cost: 1 Hope"
+	#audio.play()
+	$Control.visible = true
 
 func generate_streight(flowers, turrets):
 	var new_tile_x = get_parent().x_coord
@@ -181,19 +183,35 @@ func generate_right_turn(flowers, turrets):
 	var tile
 	
 	if direction_to_next == Direction.UP:
-		tile = load("res://tiles/turn/URTurnTile.tscn").instantiate() #UPRIGHT
+		var r = randi_range(0,1)
+		if r == 0:
+			tile = load("res://tiles/turn/URTurnTile.tscn").instantiate() #UPRIGHT
+		elif r == 1:
+			tile = load("res://tiles/turn/URTurnTile2.tscn").instantiate() #UPRIGHT
 		new_tile_y -= 1
 
 	elif direction_to_next == Direction.DOWN:
-		tile = load("res://tiles/turn/DLTurnTile.tscn").instantiate() #DOWNLEFT
+		var r = randi_range(0,1)
+		if r == 0:
+			tile = load("res://tiles/turn/DLTurnTile.tscn").instantiate() #DOWNLEFT
+		elif r == 1:
+			tile = load("res://tiles/turn/DLTurnTile2.tscn").instantiate() #DOWNLEFT
 		new_tile_y += 1
 
 	elif direction_to_next == Direction.LEFT:
-		tile = load("res://tiles/turn/RUTurnTile.tscn").instantiate() #RIGHTUP
+		var r = randi_range(0,1)
+		if r == 0:
+			tile = load("res://tiles/turn/RUTurnTile.tscn").instantiate() #RIGHTUP
+		elif r == 1:
+			tile = load("res://tiles/turn/RUTurnTile2.tscn").instantiate() #RIGHTUP
 		new_tile_x -= 1
 
 	elif direction_to_next == Direction.RIGHT:
-		tile = load("res://tiles/turn/LDTurnTile.tscn").instantiate() #LEFTDOWN
+		var r = randi_range(0,1)
+		if r == 0:
+			tile = load("res://tiles/turn/LDTurnTile.tscn").instantiate() #LEFTDOWN
+		elif r == 1:
+			tile = load("res://tiles/turn/LDTurnTile2.tscn").instantiate() #LEFTDOWN
 		new_tile_x += 1
 	
 	tile.x_coord = new_tile_x
@@ -214,19 +232,35 @@ func generate_left_turn(flowers, turrets):
 	var tile
 	
 	if direction_to_next == Direction.UP:
-		tile = load("res://tiles/turn/ULTurnTile.tscn").instantiate() #UPLEFT
+		var r = randi_range(0,1)
+		if r == 0:
+			tile = load("res://tiles/turn/ULTurnTile.tscn").instantiate() #UPLEFT
+		elif r == 1:
+			tile = load("res://tiles/turn/ULTurnTile2.tscn").instantiate() #UPLEFT
 		new_tile_y -= 1
 
 	elif direction_to_next == Direction.DOWN:
-		tile = load("res://tiles/turn/DRTurnTile.tscn").instantiate() #DOWNRIGHT
+		var r = randi_range(0,1)
+		if r == 0:
+			tile = load("res://tiles/turn/DRTurnTile.tscn").instantiate() #DOWNRIGHT
+		elif r == 1:
+			tile = load("res://tiles/turn/DRTurnTile2.tscn").instantiate() #DOWNRIGHT
 		new_tile_y += 1
 
 	elif direction_to_next == Direction.LEFT:
-		tile = load("res://tiles/turn/RDTurnTile.tscn").instantiate() #RIGHTDOWN
+		var r = randi_range(0,1)
+		if r == 0:
+			tile = load("res://tiles/turn/RDTurnTile.tscn").instantiate() #RIGHTDOWN
+		elif r == 1:
+			tile = load("res://tiles/turn/RDTurnTile2.tscn").instantiate() #RIGHTDOWN
 		new_tile_x -= 1
 
 	elif direction_to_next == Direction.RIGHT:
-		tile = load("res://tiles/turn/LUTurnTile.tscn").instantiate() #LEFTUP
+		var r = randi_range(0,1)
+		if r == 0:
+			tile = load("res://tiles/turn/LUTurnTile.tscn").instantiate() #LEFTUP
+		elif r == 1:
+			tile = load("res://tiles/turn/LUTurnTile2.tscn").instantiate() #LEFTUP
 		new_tile_x += 1
 	
 	tile.x_coord = new_tile_x
