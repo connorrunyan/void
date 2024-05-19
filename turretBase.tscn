@@ -1,33 +1,26 @@
-[gd_scene load_steps=5 format=3 uid="uid://bf25eanti5hg4"]
+[gd_scene load_steps=5 format=3 uid="uid://c3cg56bu11bry"]
 
 [ext_resource type="Script" path="res://turretBase.gd" id="1_kn523"]
-[ext_resource type="Texture2D" uid="uid://fuyasx4vn8cn" path="res://icon.svg" id="2_b145b"]
+[ext_resource type="Texture2D" uid="uid://da6lhom4eecb6" path="res://turret_art/turret_plot.png" id="2_vcg0c"]
+[ext_resource type="AudioStream" uid="uid://dp1m48o6ss3vy" path="res://sound_effects/Powerup.wav" id="3_kxkad"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iy1lp"]
-size = Vector2(128, 96)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_csdef"]
-size = Vector2(187.542, 153.875)
+size = Vector2(67.3333, 62.5)
 
 [node name="TurretBase" type="StaticBody2D" groups=["Turret"]]
+z_index = 25
 script = ExtResource("1_kn523")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -32)
+position = Vector2(0.499998, 1.5)
 scale = Vector2(1.5, 2)
 shape = SubResource("RectangleShape2D_iy1lp")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-9.53674e-07, -96)
-scale = Vector2(1.5, 2)
-shape = SubResource("RectangleShape2D_csdef")
-disabled = true
-
 [node name="TowerBody" type="Sprite2D" parent="."]
-modulate = Color(0, 1, 0.0160625, 1)
-texture = ExtResource("2_b145b")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_vcg0c")
 
 [node name="Control" type="Control" parent="."]
 visible = false
@@ -37,8 +30,8 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_top = -104.0
-offset_bottom = -64.0
+offset_top = -117.0
+offset_bottom = -77.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -62,6 +55,9 @@ layout_mode = 2
 
 [node name="Button3" type="Button" parent="Control/PanelContainer/HBoxContainer"]
 layout_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kxkad")
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

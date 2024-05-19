@@ -9,7 +9,7 @@ func _init_turret():
 	print("Bomber Turret Initialized")
 
 func _ready():
-	damage_per_shot = 4.0  
+	damage_per_shot = 14.0 
 	hit_delay = 2.5   
 	_init_turret() 
 	print(global_position)
@@ -28,3 +28,8 @@ func damage(delta):
 
 func _process(delta):
 	damage(delta)
+	face_target()
+
+func face_target():
+	if current_targets.size() >= 1:
+		$Node2D.look_at(current_targets[0].global_position)

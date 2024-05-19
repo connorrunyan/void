@@ -1,0 +1,101 @@
+[gd_scene load_steps=3 format=3 uid="uid://cin4quit4sfx1"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_68mvd"]
+[ext_resource type="Texture2D" uid="uid://bhf8o3mjjtrgb" path="res://Sprite-0001.png" id="2_iic1q"]
+
+[node name="Player" type="Node2D" groups=["Player"]]
+script = ExtResource("1_68mvd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_iic1q")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -2)
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/UI"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -77.0
+offset_right = 190.0
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/UI/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="FlowerLabel" type="Label" parent="CanvasLayer/UI/PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = " Flowers: 0 "
+
+[node name="Label2" type="Label" parent="CanvasLayer/UI/PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = " Hopes: 0 "
+
+[node name="Label3" type="Label" parent="CanvasLayer/UI/PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = " Supplies: 0 "
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/UI/PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/PanelContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/PanelContainer/HBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Q"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="CanvasLayer/UI/PanelContainer/HBoxContainer/PanelContainer/VBoxContainer"]
+modulate = Color(0.972573, 0.960164, 1, 1)
+layout_mode = 2
+text = "    Mortar Strike    "
+horizontal_alignment = 1
+
+[node name="MortarTimerLabel" type="Label" parent="CanvasLayer/UI/PanelContainer/HBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "10.0"
+horizontal_alignment = 1
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/UI/PanelContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UI/PanelContainer/HBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/PanelContainer/HBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+text = "R"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="CanvasLayer/UI/PanelContainer/HBoxContainer/PanelContainer2/VBoxContainer"]
+modulate = Color(0.972573, 0.960164, 1, 1)
+layout_mode = 2
+text = " Railgun Momma "
+horizontal_alignment = 1
+
+[node name="RailgunTimerLabel" type="Label" parent="CanvasLayer/UI/PanelContainer/HBoxContainer/PanelContainer2/VBoxContainer"]
+layout_mode = 2
+text = "10.0"
+horizontal_alignment = 1
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer/UI/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "Next Wave:
+10.0s"

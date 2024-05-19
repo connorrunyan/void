@@ -1,23 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://xwlvmvm6rmvl"]
+[gd_scene load_steps=7 format=3 uid="uid://c42s8fad61r8f"]
 
 [ext_resource type="Script" path="res://TurretAnnihilator.gd" id="1_5ch23"]
-[ext_resource type="Texture2D" uid="uid://fuyasx4vn8cn" path="res://icon.svg" id="2_a844w"]
+[ext_resource type="Texture2D" uid="uid://bm81c6tl50c42" path="res://turret_art/turret_base.png" id="2_5li1j"]
+[ext_resource type="AudioStream" uid="uid://drsx32rw2ugkj" path="res://sound_effects/VVContinousLaser.wav" id="3_dwqbs"]
+[ext_resource type="Texture2D" uid="uid://dcc88dlwdcoh0" path="res://turret_art/sniper_turret_top.png" id="3_lusoa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iy1lp"]
 size = Vector2(128, 128)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vwokt"]
-radius = 247.032
+radius = 500.0
 
 [node name="Turret" type="StaticBody2D" groups=["Turret"]]
+z_index = 25
 script = ExtResource("1_5ch23")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_iy1lp")
 
 [node name="TowerBody" type="Sprite2D" parent="."]
-modulate = Color(0.862745, 0.658824, 0, 1)
-texture = ExtResource("2_a844w")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_5li1j")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(6, -32)
+
+[node name="TowerHead" type="Sprite2D" parent="Node2D"]
+position = Vector2(17, -9)
+rotation = -1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_lusoa")
 
 [node name="Area" type="Marker2D" parent="."]
 position = Vector2(68, 0)
@@ -34,6 +46,9 @@ shape = SubResource("CircleShape2D_vwokt")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_dwqbs")
 
 [connection signal="body_entered" from="Tower" to="." method="_on_tower_body_entered"]
 [connection signal="body_exited" from="Tower" to="." method="_on_tower_body_exited"]

@@ -13,7 +13,7 @@ config_version=5
 config/name="Void Vacation"
 config/description="Surive this family roadtrip gone wrong tower defence and escape the void."
 config/version="1"
-run/main_scene="res://Game.tscn"
+run/main_scene="res://title.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
@@ -25,8 +25,8 @@ Autoload="*res://Autoload.gd"
 
 [display]
 
-window/size/viewport_width=960
-window/size/viewport_height=540
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
 
@@ -112,4 +112,4 @@ aim={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-environment/defaults/default_clear_color=Color(0.613281, 0.613281, 0.613281, 1)
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

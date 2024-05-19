@@ -1,33 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://blc35rvorsbw4"]
+[gd_scene load_steps=6 format=3 uid="uid://blc35rvorsbw4"]
 
 [ext_resource type="Script" path="res://tiles/Tile.gd" id="1_i2c6i"]
 [ext_resource type="PackedScene" uid="uid://coq24jslo3rv4" path="res://tile_add_point.tscn" id="1_t7odl"]
-[ext_resource type="Texture2D" uid="uid://byc3g6dt28ka2" path="res://tiles/streight/tile_straight_vertical_1.png" id="2_d24xx"]
-[ext_resource type="PackedScene" uid="uid://bf25eanti5hg4" path="res://turretBase.tscn" id="4_ljfvr"]
+[ext_resource type="Texture2D" uid="uid://blug65bqov2eo" path="res://tiles/background.png" id="2_65qqb"]
+[ext_resource type="Texture2D" uid="uid://d42becdswg67" path="res://tiles/streight/v line.png" id="3_jcwhg"]
+[ext_resource type="PackedScene" uid="uid://c3cg56bu11bry" path="res://turretBase.tscn" id="5_6kssn"]
 
 [node name="DuStreightTile" type="Node2D"]
 script = ExtResource("1_i2c6i")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_d24xx")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_65qqb")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_jcwhg")
 
 [node name="TileAddPoint" parent="." instance=ExtResource("1_t7odl")]
 position = Vector2(0, -256)
 direction_to_next = 0
 
-[node name="Turret1" parent="." instance=ExtResource("4_ljfvr")]
-visible = false
-position = Vector2(157, -2)
-
-[node name="Turret2" parent="." instance=ExtResource("4_ljfvr")]
-visible = false
-position = Vector2(-161, -170)
-
-[node name="Turret3" parent="." instance=ExtResource("4_ljfvr")]
-visible = false
-position = Vector2(-168, 176)
-
 [node name="PathCenter" type="Node2D" parent="." groups=["Tile"]]
 
 [node name="PathEnd" type="Node2D" parent="."]
 position = Vector2(0, 256)
+
+[node name="Turret1" parent="." instance=ExtResource("5_6kssn")]
+visible = false
+position = Vector2(154, 39)
+
+[node name="Turret2" parent="." instance=ExtResource("5_6kssn")]
+visible = false
+position = Vector2(-156, 154)
+
+[node name="Turret3" parent="." instance=ExtResource("5_6kssn")]
+visible = false
+position = Vector2(-154, -101)

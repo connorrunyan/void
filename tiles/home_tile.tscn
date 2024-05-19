@@ -1,47 +1,54 @@
-[gd_scene load_steps=6 format=3 uid="uid://kleo4rxlh6n0"]
+[gd_scene load_steps=7 format=3 uid="uid://dqeaik230fvb5"]
 
 [ext_resource type="Script" path="res://tiles/Tile.gd" id="1_82mvd"]
-[ext_resource type="Texture2D" uid="uid://rerwl3k3xpl1" path="res://tiles/tile_center.png" id="1_rxjsk"]
-[ext_resource type="PackedScene" uid="uid://coq24jslo3rv4" path="res://tile_add_point.tscn" id="2_xw1oa"]
-[ext_resource type="PackedScene" uid="uid://bf25eanti5hg4" path="res://turretBase.tscn" id="4_vmcsk"]
-[ext_resource type="PackedScene" uid="uid://bo2xlwoyfgg8d" path="res://van.tscn" id="5_7qpx7"]
+[ext_resource type="Texture2D" uid="uid://blug65bqov2eo" path="res://tiles/background.png" id="2_6m36i"]
+[ext_resource type="Texture2D" uid="uid://1r1q51tf5cqp" path="res://tiles/center.png" id="2_8ifio"]
+[ext_resource type="PackedScene" uid="uid://bo2xlwoyfgg8d" path="res://van.tscn" id="3_wfut0"]
+[ext_resource type="PackedScene" uid="uid://coq24jslo3rv4" path="res://tile_add_point.tscn" id="5_ao7s2"]
+[ext_resource type="PackedScene" uid="uid://c3cg56bu11bry" path="res://turretBase.tscn" id="6_0or1v"]
 
-[node name="HomeTile" type="Node2D" groups=["Tile"]]
+[node name="HomeTile" type="Node2D"]
 script = ExtResource("1_82mvd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_rxjsk")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_6m36i")
 
-[node name="TileAddPoint" parent="." instance=ExtResource("2_xw1oa")]
-position = Vector2(0, 255)
-direction_to_next = 1
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_8ifio")
 
-[node name="TileAddPoint2" parent="." instance=ExtResource("2_xw1oa")]
-position = Vector2(0, -255)
+[node name="Van" parent="." instance=ExtResource("3_wfut0")]
+
+[node name="TileAddPoint" parent="." instance=ExtResource("5_ao7s2")]
+position = Vector2(-256, 0)
+
+[node name="TileAddPoint2" parent="." instance=ExtResource("5_ao7s2")]
+position = Vector2(0, -256)
 direction_to_next = 0
 
-[node name="TileAddPoint3" parent="." instance=ExtResource("2_xw1oa")]
-position = Vector2(-255, 0)
-
-[node name="TileAddPoint4" parent="." instance=ExtResource("2_xw1oa")]
-position = Vector2(255, 0)
+[node name="TileAddPoint3" parent="." instance=ExtResource("5_ao7s2")]
+position = Vector2(256, 0)
 direction_to_next = 3
 
-[node name="Turret1" parent="." instance=ExtResource("4_vmcsk")]
-position = Vector2(189, -188)
+[node name="TileAddPoint4" parent="." instance=ExtResource("5_ao7s2")]
+position = Vector2(0, 256)
+direction_to_next = 1
 
-[node name="Turret2" parent="." instance=ExtResource("4_vmcsk")]
-position = Vector2(-188, -187)
+[node name="TurretBase" parent="." instance=ExtResource("6_0or1v")]
+position = Vector2(-187, 186)
 
-[node name="Turret3" parent="." instance=ExtResource("4_vmcsk")]
-position = Vector2(-188, 188)
+[node name="TurretBase2" parent="." instance=ExtResource("6_0or1v")]
+position = Vector2(-188, -182)
 
-[node name="Turret4" parent="." instance=ExtResource("4_vmcsk")]
-position = Vector2(189, 187)
+[node name="TurretBase3" parent="." instance=ExtResource("6_0or1v")]
+position = Vector2(187, -187)
 
-[node name="PathCenter" type="Node2D" parent="."]
+[node name="TurretBase4" parent="." instance=ExtResource("6_0or1v")]
+position = Vector2(190, 187)
+
+[node name="PathCenter" type="Node2D" parent="." groups=["Tile"]]
+position = Vector2(-4, 1)
 
 [node name="PathEnd" type="Node2D" parent="."]
-
-[node name="Van" parent="." instance=ExtResource("5_7qpx7")]
+position = Vector2(0, 3)

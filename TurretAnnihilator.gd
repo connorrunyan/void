@@ -2,7 +2,7 @@ extends TOWER
 
 class_name AnnihilatorTower
 
-var DPS = 5
+var DPS = 10
 var laser_time = false
 
 var on_cooldown = false 
@@ -35,12 +35,14 @@ func damage(delta):
 	if current_targets.size() > 0 and not on_cooldown:
 		laser_time = true
 		var target = current_targets[0]
+		$AudioStreamPlayer2D.play()
 		var damage_this_frame = DPS * delta
 		target.take_damage(damage_this_frame)
 		if target.health <= 0:
 			laser_time = false
 			current_targets.erase(target)  # Remove target if it's dead
 			initiate_cooldown()  # Start cooldown if a target is killed
+			$AudioStreamPlayer2D.stop()
 
 func _update_line():
 	line.clear_points()
@@ -57,6 +59,11 @@ func _process(delta):
 	if current_targets.size() == 0:
 		laser_time = false
 	damage(delta)
+	face_target()
+
+func face_target():
+	if current_targets.size() >= 1:
+		$Node2D.look_at(current_targets[0].global_position)
 
 func initiate_cooldown():
 	on_cooldown = true

@@ -1,34 +1,40 @@
-[gd_scene load_steps=5 format=3 uid="uid://dox8wn03faxvo"]
+[gd_scene load_steps=6 format=3 uid="uid://dox8wn03faxvo"]
 
 [ext_resource type="Script" path="res://tiles/Tile.gd" id="1_pdeuc"]
-[ext_resource type="Texture2D" uid="uid://bqhguyosc78or" path="res://tiles/streight/tile_straight_vertical_3.png" id="2_rba75"]
+[ext_resource type="Texture2D" uid="uid://blug65bqov2eo" path="res://tiles/background.png" id="2_qv572"]
 [ext_resource type="PackedScene" uid="uid://coq24jslo3rv4" path="res://tile_add_point.tscn" id="3_droid"]
-[ext_resource type="PackedScene" uid="uid://bf25eanti5hg4" path="res://turretBase.tscn" id="4_scvyo"]
+[ext_resource type="Texture2D" uid="uid://bwrbymsftxj6x" path="res://tiles/streight/ziggy point left.png" id="3_t2w8c"]
+[ext_resource type="PackedScene" uid="uid://c3cg56bu11bry" path="res://turretBase.tscn" id="5_xfh02"]
 
 [node name="DuStreightTile" type="Node2D"]
 script = ExtResource("1_pdeuc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_rba75")
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_qv572")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_t2w8c")
 
 [node name="TileAddPoint" parent="." instance=ExtResource("3_droid")]
 position = Vector2(0, -256)
 direction_to_next = 0
 
-[node name="Turret1" parent="." instance=ExtResource("4_scvyo")]
-visible = false
-position = Vector2(18, -60)
-
-[node name="Turret2" parent="." instance=ExtResource("4_scvyo")]
-visible = false
-position = Vector2(170, -171)
-
-[node name="Turret3" parent="." instance=ExtResource("4_scvyo")]
-visible = false
-position = Vector2(166, 177)
-
 [node name="PathCenter" type="Node2D" parent="." groups=["Tile"]]
-position = Vector2(-215, -75)
+position = Vector2(-135, -3)
 
 [node name="PathEnd" type="Node2D" parent="."]
 position = Vector2(0, 256)
+
+[node name="Turret1" parent="." instance=ExtResource("5_xfh02")]
+visible = false
+position = Vector2(171, -118)
+
+[node name="Turret2" parent="." instance=ExtResource("5_xfh02")]
+visible = false
+position = Vector2(160, 160)
+
+[node name="Turret3" parent="." instance=ExtResource("5_xfh02")]
+visible = false
+position = Vector2(3, 3)

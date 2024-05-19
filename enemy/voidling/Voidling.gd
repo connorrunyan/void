@@ -11,10 +11,12 @@ var hit_timer = 1.0
 var hit_delay = 1.0
 
 var health = 15.0
+var delay
 
 static var enemy_count = 0
 
 func take_damage(amount):
+	#$AudioStreamPlayer2D.play()
 	health -= amount
 	print("Enemy ", self.name, " took ", amount, " damage. Health: ", health)
 	if health <= 0:
@@ -27,6 +29,12 @@ func die():
 	queue_free()
 	
 func _physics_process(delta):
+	$Label.text = str(int(health)) + " / 15"
+	delay -= delta
+	if delay <= 0.0:
+		visible = true
+		$CollisionShape2D.disabled = false
+		delay = 0.0
 	if health > 0:
 		var distance_to_center = global_position.distance_to(Vector2(0.0, 0.0))
 		if distance_to_center <= 250.0:
@@ -62,7 +70,8 @@ func _physics_process(delta):
 				var yOffset = target_pos.y - global_position.y
 				var direction = Vector2(xOffset, yOffset).normalized()
 				velocity = direction * SPEED * delta
-				move_and_slide()
+				if delay <= 0.0:
+					move_and_slide()
 
 # Method to get the next enemy name
 static func get_next_enemy_name() -> String:

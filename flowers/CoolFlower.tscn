@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://3qub768veed7"]
 
 [ext_resource type="Script" path="res://flowers/CoolFlower.gd" id="1_xvs8u"]
-[ext_resource type="Texture2D" uid="uid://vbfl26eulxy4" path="res://flowers/bad_flower.png" id="2_bmcy5"]
+[ext_resource type="Texture2D" uid="uid://cpg0uheyc5b5w" path="res://flowers/flower.png" id="2_yp5wt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q4y3a"]
 size = Vector2(28, 26)
@@ -15,17 +15,8 @@ script = ExtResource("1_xvs8u")
 shape = SubResource("RectangleShape2D_q4y3a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_bmcy5")
-
-[node name="Label" type="Label" parent="."]
-visible = false
-offset_left = -6.0
-offset_top = -30.0
-offset_right = 6.0
-offset_bottom = -7.0
-text = "E"
-horizontal_alignment = 1
+scale = Vector2(0.015, 0.015)
+texture = ExtResource("2_yp5wt")
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

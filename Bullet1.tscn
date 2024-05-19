@@ -1,16 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddjplbxstubka"]
+[gd_scene load_steps=7 format=3 uid="uid://ddjplbxstubka"]
 
 [ext_resource type="Texture2D" uid="uid://fuyasx4vn8cn" path="res://icon.svg" id="1_cqwhc"]
 [ext_resource type="Script" path="res://Bullet1.gd" id="1_lj1qk"]
 [ext_resource type="Texture2D" uid="uid://bndcqa1g8i8ti" path="res://Kaboom.png" id="3_m14o5"]
+[ext_resource type="AudioStream" uid="uid://d1sle5kfo70ab" path="res://sound_effects/Explosion6.wav" id="4_i18xs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bxu3"]
 size = Vector2(32, 30)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2gaxf"]
-radius = 45.0
+radius = 128.016
 
 [node name="RedBullet" type="CharacterBody2D"]
+z_index = 2000
 script = ExtResource("1_lj1qk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -29,7 +31,7 @@ texture = ExtResource("1_cqwhc")
 [node name="Kaboom" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.498039)
-scale = Vector2(0.705, 0.705)
+scale = Vector2(2, 2)
 texture = ExtResource("3_m14o5")
 
 [node name="Shadow" type="Sprite2D" parent="."]
@@ -40,3 +42,6 @@ texture = ExtResource("3_m14o5")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.2
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_i18xs")

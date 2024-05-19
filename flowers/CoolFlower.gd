@@ -1,7 +1,5 @@
 extends Node2D
 
-@onready var label : Label = $Label
-
 var hovered = false
 var close = false
 
@@ -16,11 +14,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if hovered or close:
-		label.visible = true
+		modulate = Color.SKY_BLUE
 		if Input.is_action_just_pressed("interact") || Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			interact()
 	else:
-		label.visible = false
+		modulate = Color.WHITE
 	
 
 

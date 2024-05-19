@@ -32,11 +32,12 @@ func _process(delta):
 	if arrived == false:
 		position += direction * speed * delta
 		update_shadow()
-	if position.distance_to(target_pos) < 1 && arrived == false:
+	if position.distance_to(target_pos) <= 3.0 && arrived == false:
 		arrived = true
 		kaboom()
 
 func show_explosion():
+	$AudioStreamPlayer2D.play()
 	BombSprite.visible = false
 	ShadowSprite.visible = false
 	ExplosionSprite.visible = true
@@ -47,7 +48,7 @@ func show_explosion():
 func kaboom():
 	show_explosion()
 	for body in ExplosionRadius.get_overlapping_bodies():
-		if "Voidling" in body.name:
+		if body.is_in_group("Enemy"):
 			body.take_damage(damage) 
 	await ExploTimer.timeout
 	self.queue_free()
